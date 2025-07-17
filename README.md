@@ -37,7 +37,8 @@ This project is a **backend API** built with **Node.js**, **Express**, and **Mon
 ### 1. Clone the Repo
 
 <pre>
-git clone https://github.com/your-username/college-appointment-api.git cd college-appointment-api
+git clone https://github.com/OluwatobilobaGp/assignment-api.git
+cd college-appointment-api
 </pre>
 
 --- 
@@ -59,3 +60,87 @@ JWT_SECRET=supersecretkey
 </pre>
 
 --- 
+
+### 4. Running the App
+<pre>
+npm start
+</pre>
+
+Server will run at: http://localhost:5000
+
+---
+
+###  5. API Endpoints
+METHOD	ENDPOINT	DESCRIPTION	AUTH
+POST	/api/auth/register	Register a student or professor	❌
+POST	/api/auth/login	Login and get a JWT token	❌
+POST	/api/availability	Professors add available slots	✅
+GET	/api/availability/:profId	Students view prof’s available slots	✅
+POST	/api/appointments	Students book a slot with a prof	✅
+DELETE	/api/appointments/:id	Professors cancel appointment	✅
+GET	/api/appointments	Students see their bookings	✅
+
+✅ All protected routes require a valid JWT token in the Authorization header.
+
+---
+
+### 6. Run Test
+
+<pre>
+npm test
+</pre>
+The test script includes:
+
+- Connection to DB
+
+- Creation of users (Student A1, A2 & Professor P1)
+
+- Booking & cancelling appointments
+
+- Assertions on expected behavior
+
+---
+
+### 7. Folder Structure
+
+<pre>
+college-appointment-api/
+│
+├── controllers/        # Business logic
+├── models/             # Mongoose schemas
+├── routes/             # API route handlers
+├── test/               # Jest test file
+├── seed/               # DB seeder (optional)
+├── .env                # Environment variables
+├── app.js              # App entry point
+├── server.js           # Connects DB and starts server
+└── README.md
+</pre>
+
+---
+
+### 8.  Seed the Database
+To populate the database with demo users and slots:
+
+- Create a script like seed.js inside /seed
+
+- Run:
+<pre>
+node seed
+</pre>
+
+---
+
+### 9. Git Ignore
+Make sure this is in your .gitignore file:
+
+<pre>
+node_modules/
+.env
+</pre>
+
+---
+
+### 10. Example JWT Auth Header
+When making requests to protected endpoints, pass the JWT like this:
+
