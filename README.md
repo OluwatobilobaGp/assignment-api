@@ -37,7 +37,7 @@ This project is a **backend API** built with **Node.js**, **Express**, and **Mon
 ### 1. Clone the Repo
 
 <pre>
-```bash git clone https://github.com/your-username/college-appointment-api.git cd college-appointment-api```
+```git clone https://github.com/your-username/college-appointment-api.git cd college-appointment-api```
 </pre>
 
 --- 
@@ -45,8 +45,7 @@ This project is a **backend API** built with **Node.js**, **Express**, and **Mon
 ### 2. Install Dependencies
 
 <pre>
-```bash 
-npm install```
+```npm install```
 </pre>
 
 ---
@@ -54,8 +53,7 @@ npm install```
 In the root directory, create a .env file:
 
 <pre>
-```bash 
-PORT=5000
+```PORT=5000
 MONGO_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/collegeApp
 JWT_SECRET=supersecretkey```
 </pre>
