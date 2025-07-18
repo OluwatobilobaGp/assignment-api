@@ -17,7 +17,17 @@ exports.register = async (req, res) => {
 };
 
 exports.login = async (req, res) => {
-  const { email, password } = req.body;
+  const body = req.body;
+  // Validate request body
+  if (!body || !body.email || !body.password) {
+    return res.status(400).json({ message: 'Email and password are required' });
+  }
+  
+  // Destructure email and password from body
+  let { email, password } = body;
+
+  if (!email || !password) return res.status(400).json({ message: 'Email and password are required' });
+
   try {
     const user = await User.findOne({ email });
     if (!user) return res.status(404).json({ message: 'User not found' });

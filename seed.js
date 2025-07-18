@@ -10,7 +10,7 @@ const Appointment = require('./models/Appointment');
 const connectDB = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI);
-    console.log('✅ MongoDB connected');
+    console.log('MongoDB connected');
   } catch (err) {
     console.error(err.message);
     process.exit(1);
@@ -26,7 +26,7 @@ const seed = async () => {
     await Availability.deleteMany();
     await Appointment.deleteMany();
 
-    console.log('🧹 Old data removed');
+    console.log('Old data removed');
 
     // Create hashed passwords
     const hashedPassword = await bcrypt.hash('123456', 10);
@@ -53,7 +53,7 @@ const seed = async () => {
       role: 'student',
     });
 
-    console.log('👨‍🏫 Professor and 👩‍🎓 students created');
+    console.log(' Professor and  students created');
 
     // Add availability
     const slot1 = await Availability.create({
@@ -66,7 +66,7 @@ const seed = async () => {
       time: new Date('2025-07-21T10:00:00Z'),
     });
 
-    console.log('📅 Availability added');
+    console.log('Availability added');
 
     // Student 1 books slot1
     const appointment1 = await Appointment.create({
@@ -89,15 +89,15 @@ const seed = async () => {
     slot2.booked = true;
     await slot2.save();
 
-    console.log('📆 Appointments booked');
+    console.log('Appointments booked');
 
     // Cancel appointment1
     appointment1.status = 'cancelled';
     await appointment1.save();
 
-    console.log('❌ Appointment for Student A1 cancelled');
+    console.log('Appointment for Student A1 cancelled');
 
-    console.log('✅ Seeding completed!');
+    console.log('Seeding completed!');
     process.exit();
   } catch (err) {
     console.error(err);
